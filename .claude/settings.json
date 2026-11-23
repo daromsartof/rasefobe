@@ -1,0 +1,158 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/core/_ai/hooks/daroms-sync.py\"",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/daroms-context.py\" build",
+            "timeout": 20
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/daroms-context.py\" route",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/daroms-steps.py\" prompt",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/daroms-check-rules.py\"",
+            "timeout": 15
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/daroms-deny-env.py\"",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/daroms-deps.py\"",
+            "timeout": 15
+          }
+        ]
+      },
+      {
+        "matcher": "Skill|Edit|Write|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/daroms-steps.py\" gate",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/daroms-typecheck.py\"",
+            "timeout": 120
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/daroms-session-stats.py\"",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(bun core/cli/daroms.ts:*)",
+      "Bash(bun daroms:*)",
+      "Bash(bun install)",
+      "Bash(bun run:*)",
+      "Bash(bunx eslint:*)",
+      "Bash(bunx expo install:*)",
+      "Bash(bunx jest:*)",
+      "Bash(bunx prettier:*)",
+      "Bash(bunx tsc:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git status:*)",
+      "Bash(python3 .claude/hooks/daroms-context.py test:*)",
+      "Read(./.daroms/inspiration/**)",
+      "Read(./app.spec.md)",
+      "Read(./core/packages/ui/CATALOG.md)",
+      "WebFetch(domain:behance.net)",
+      "WebFetch(domain:dribbble.com)",
+      "WebFetch(domain:mobbin.com)",
+      "WebFetch(domain:pageflows.com)",
+      "WebFetch(domain:pinterest.com)",
+      "WebFetch(domain:screensdesign.com)",
+      "WebFetch(domain:www.behance.net)",
+      "WebFetch(domain:www.pinterest.com)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(git push --force:*)",
+      "Bash(rm -rf:*)",
+      "Edit(./.env)",
+      "Edit(./.env.*)",
+      "Edit(./core/**)",
+      "Edit(./src/generated/**)",
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Write(./.env)",
+      "Write(./.env.*)",
+      "Write(./core/**)",
+      "Write(./src/generated/**)"
+    ]
+  },
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "skillOverrides": {
+    "frontend-design": "name-only",
+    "expo-native-ui": "name-only",
+    "expo-data-fetching": "name-only",
+    "eas-app-stores": "name-only",
+    "expo-upgrade": "name-only",
+    "expo-animation": "name-only",
+    "react-native-best-practices": "name-only",
+    "supabase-postgres-best-practices": "name-only",
+    "supabase": "name-only",
+    "ecc-tdd-workflow": "name-only",
+    "ecc-security-review": "name-only",
+    "ecc-accessibility": "name-only",
+    "ecc-typescript-patterns": "name-only"
+  }
+}

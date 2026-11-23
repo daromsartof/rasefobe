@@ -1,0 +1,68 @@
+{
+  "tabs": {
+    "home": "Accueil"
+  },
+  "home": {
+    "title": "resefobe",
+    "welcome": "Bienvenue",
+    "intro": "Votre app est prête. Décrivez la suite à Claude, écran par écran.",
+    "kitchenSink": "Voir tous les composants"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "back": "Retour à l'accueil"
+  },
+  "dev": {
+    "kitchenSink": "Composants",
+    "light": "Clair",
+    "dark": "Sombre",
+    "actions": "Actions",
+    "display": "Affichage",
+    "feedback": "Retours",
+    "states": "États",
+    "primary": "Principal",
+    "secondary": "Secondaire",
+    "outline": "Contour",
+    "ghost": "Discret",
+    "danger": "Supprimer",
+    "like": "Aimer",
+    "settings": "Réglages",
+    "notify": "Notifier",
+    "toast": "Enregistré",
+    "toastError": "Erreur",
+    "placeholder": "Votre texte",
+    "person": "Ada Lovelace",
+    "caption": "Texte secondaire de démonstration",
+    "badge": "Actif",
+    "item": "Élément de liste",
+    "value": "Valeur",
+    "chip": "Filtre",
+    "tabA": "Tous",
+    "tabB": "Favoris",
+    "sheet": "Feuille",
+    "dialog": "Dialogue",
+    "statPages": "Pages cette semaine",
+    "statStreak": "Jours d'affilée",
+    "chart": "7 derniers jours"
+  },
+  "onboarding": {
+    "page1Title": "Bienvenue",
+    "page1Description": "Tout ce qu'il faut, au même endroit.",
+    "page2Title": "Rapide",
+    "page2Description": "Quelques secondes suffisent pour commencer.",
+    "page3Title": "Pour vous",
+    "page3Description": "Une expérience pensée pour votre quotidien."
+  },
+  "aiChat": {
+    "suggestion1": "Donne-moi une idée pour aujourd'hui",
+    "suggestion2": "Résume-moi ce que je peux faire ici"
+  },
+  "paywall": {
+    "title": "Passez à Pro",
+    "subtitle": "Débloquez toutes les fonctionnalités.",
+    "feature1": "Accès illimité",
+    "feature2": "Sans publicité",
+    "feature3": "Nouveautés en avant-première",
+    "cta": "Continuer"
+  }
+}

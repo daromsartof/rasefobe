@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- Icône de départ : initiale sur l'aplat de la marque. /daroms-brand la remplace par une direction de `daroms logo`. -->
+  <rect width="1024" height="1024" fill="#2F3A8F"/>
+  <text x="512" y="701" text-anchor="middle" font-family="Inter" font-size="520" font-weight="700" fill="#ffffff">R</text>
+</svg>
